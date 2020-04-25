@@ -37,7 +37,7 @@ func JSON(sm SocialMedia, filename string) error {
 		return errors.New("error occured opening this file: " + err.Error())
 	}
 	for _, fd := range sm.Feed() {
-		js, err := json.MarshalIndent(fd, "", " ")
+		js, err := json.MarshalIndent(fd, "\n", " ")
 		if err != nil {
 			return errors.New("An error occured here: " + err.Error())
 		}
@@ -60,7 +60,7 @@ func XML(sm SocialMedia, filename string) error {
 		return errors.New("An error occured opening this file: " + err.Error())
 	}
 	for _, fd := range sm.Feed() {
-		x, err := xml.MarshalIndent(fd, "", " ")
+		x, err := xml.MarshalIndent(fd, "\n", " ")
 		if err != nil {
 			return errors.New("There was an error here: " + err.Error())
 		}
